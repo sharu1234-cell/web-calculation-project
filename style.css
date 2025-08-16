@@ -1,0 +1,312 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Calculator Container */
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Main Calculator */
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Display Container */
+.display-container {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Main Display */
+.display {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: right;
+    letter-spacing: 1px;
+    word-break: break-all;
+    min-height: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Operation Display */
+.operation-display {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    text-align: right;
+    margin-bottom: 5px;
+    min-height: 1em;
+    font-weight: 300;
+}
+
+/* Button Rows */
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.button-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Base Button Styles */
+.btn {
+    padding: 18px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Number Buttons */
+.number-btn {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.number-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.number-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Zero Button (spans 2 columns) */
+.zero-btn {
+    grid-column: span 2;
+}
+
+/* Operator Buttons */
+.operator-btn {
+    background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+    color: white;
+    box-shadow: 0 4px 15px rgba(238, 90, 82, 0.3);
+}
+
+.operator-btn:hover {
+    background: linear-gradient(145deg, #ff5252, #e53935);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 90, 82, 0.4);
+}
+
+.operator-btn:active {
+    transform: translateY(0);
+}
+
+/* Equals Button */
+.equals-btn {
+    background: linear-gradient(145deg, #4caf50, #43a047);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.equals-btn:hover {
+    background: linear-gradient(145deg, #43a047, #388e3c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.equals-btn:active {
+    transform: translateY(0);
+}
+
+/* Clear Button */
+.clear-btn {
+    background: linear-gradient(145deg, #ff9800, #f57c00);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.clear-btn:hover {
+    background: linear-gradient(145deg, #f57c00, #ef6c00);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.clear-btn:active {
+    transform: translateY(0);
+}
+
+/* Memory Buttons */
+.memory-btn {
+    background: linear-gradient(145deg, #9c27b0, #8e24aa);
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.memory-btn:hover {
+    background: linear-gradient(145deg, #8e24aa, #7b1fa2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);
+}
+
+.memory-btn:active {
+    transform: translateY(0);
+}
+
+/* Instructions */
+.instructions {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 350px;
+}
+
+.instructions p {
+    margin-bottom: 5px;
+}
+
+/* Active State for Operators */
+.operator-btn.active {
+    background: linear-gradient(145deg, #2196f3, #1976d2);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+/* Error State */
+.display.error {
+    color: #ff5252;
+    font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .calculator {
+        padding: 20px;
+        max-width: 300px;
+    }
+    
+    .btn {
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    
+    .display {
+        font-size: 2rem;
+    }
+    
+    .button-row {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .calculator {
+        padding: 15px;
+        max-width: 280px;
+    }
+    
+    .btn {
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+    
+    .display {
+        font-size: 1.8rem;
+    }
+    
+    .memory-btn {
+        font-size: 0.8rem;
+    }
+}
+
+/* Accessibility */
+.btn:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+    
+    .btn::before {
+        display: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .calculator {
+        background: #000;
+        border: 2px solid #fff;
+    }
+    
+    .display-container {
+        background: #000;
+        border: 1px solid #fff;
+    }
+    
+    .number-btn {
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+}
