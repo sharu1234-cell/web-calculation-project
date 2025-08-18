@@ -52,3 +52,21 @@ Simply click or tap the calculator buttons to perform operations.
 
 ## 🏗️ File Structure
 
+# Calculator Project live demo :
+
+A simple web-based calculator built using *HTML, CSS, and JavaScript*.
+
+## 🚀 Live Demo
+You can try the calculator here: [Click Here](https://neon-daffodil-b5fe82.netlify.app/)
+
+## 📂 Project Features
+- Basic arithmetic operations (+, -, ×, ÷)  
+- Memory functions (MC, MR, M+, M−)  
+- Percentage and square root  
+- Clear button  
+
+## 👨‍💻 Tech Stack
+- HTML  
+- CSS  
+- JavaScript
+
